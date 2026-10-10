@@ -1006,6 +1006,109 @@ Responsive on mobile & desktop
 <p style="font-size:11px;margin-top:9px">Tasks are saved in this browser on this device.</p>
 </article>
 
+
+<article class="card tool-card reveal">
+<h3><i class="fa-solid fa-text-height"></i> Text Case Converter</h3>
+<textarea class="field" id="caseText" rows="3" placeholder="Enter text…"></textarea>
+<select class="field" id="caseMode"><option value="title">Title Case</option><option value="sentence">Sentence case</option><option value="upper">UPPERCASE</option><option value="lower">lowercase</option><option value="alternating">aLtErNaTiNg CaSe</option><option value="inverse">iNVERSE cASE</option></select>
+<button class="btn" onclick="convertCase()">Convert text</button><div class="result" id="caseResult">Converted text appears here.</div>
+<button class="btn secondary" onclick="copyResult('caseResult')">Copy result</button>
+</article>
+
+<article class="card tool-card reveal">
+<h3><i class="fa-solid fa-file-pdf"></i> Image to PDF Converter</h3>
+<input class="field" id="pdfImages" type="file" accept="image/*" multiple>
+<button class="btn" onclick="imagesToPDF()">Create PDF</button><div class="result" id="pdfResult">Choose one or more images. PDF is created in your browser.</div>
+</article>
+
+<article class="card tool-card reveal">
+<h3><i class="fa-solid fa-compress"></i> Image Resizer & Compressor</h3>
+<input class="field" id="resizeImage" type="file" accept="image/*">
+<div style="display:flex;gap:8px"><input class="field" id="resizeW" type="number" min="1" placeholder="Width px"><input class="field" id="resizeH" type="number" min="1" placeholder="Height px"></div>
+<label style="font-size:12px;color:var(--muted)">JPEG quality <span id="qualityVal">80%</span></label><input class="field" id="resizeQuality" type="range" min="10" max="100" value="80" oninput="$('qualityVal').textContent=this.value+'%'">
+<button class="btn" onclick="resizeCompressImage()">Resize & download</button><div class="result" id="resizeResult">Choose an image and set optional dimensions.</div>
+</article>
+
+<article class="card tool-card reveal">
+<h3><i class="fa-solid fa-network-wired"></i> My IP & Network Info</h3>
+<button class="btn" onclick="getNetworkInfo()">Check public IP</button><div class="result" id="ipResult">Your public IP will be requested from an external IP service.</div>
+</article>
+
+<article class="card tool-card reveal">
+<h3><i class="fa-solid fa-right-left"></i> Data Unit Converter</h3>
+<input class="field" id="dataValue" type="number" min="0" value="1" placeholder="Amount">
+<div style="display:flex;gap:8px"><select class="field" id="dataFrom"><option>GB</option><option>MB</option><option>KB</option><option>TB</option></select><select class="field" id="dataTo"><option>MB</option><option>GB</option><option>KB</option><option>TB</option><option>B</option></select></div>
+<button class="btn" onclick="convertDataUnits()">Convert units</button><div class="result" id="dataResult">Converted amount appears here.</div>
+</article>
+
+<article class="card tool-card reveal">
+<h3><i class="fa-solid fa-file-invoice-dollar"></i> Invoice Generator (Simple)</h3>
+<input class="field" id="invBusiness" placeholder="Business name"><input class="field" id="invClient" placeholder="Client name">
+<input class="field" id="invItem" placeholder="Item / service"><div style="display:flex;gap:8px"><input class="field" id="invQty" type="number" min="1" value="1" placeholder="Qty"><input class="field" id="invPrice" type="number" min="0" placeholder="Unit price (LKR)"></div>
+<button class="btn" onclick="makeDocument('invoice')">Preview invoice</button><div class="result" id="invoiceResult">Invoice preview appears here.</div><button class="btn secondary" onclick="printDocument('invoiceResult')">Print / Save PDF</button>
+</article>
+
+<article class="card tool-card reveal">
+<h3><i class="fa-solid fa-receipt"></i> Receipt / Bill Generator</h3>
+<input class="field" id="recBusiness" placeholder="Business name"><input class="field" id="recCustomer" placeholder="Customer name (optional)">
+<input class="field" id="recDetails" placeholder="Payment for"><input class="field" id="recAmount" type="number" min="0" placeholder="Amount (LKR)">
+<button class="btn" onclick="makeDocument('receipt')">Create receipt</button><div class="result" id="receiptResult">Receipt preview appears here.</div><button class="btn secondary" onclick="printDocument('receiptResult')">Print / Save PDF</button>
+</article>
+
+<article class="card tool-card reveal">
+<h3><i class="fa-solid fa-hashtag"></i> Hashtag Generator</h3>
+<textarea class="field" id="hashTopic" rows="2" placeholder="Topic, keywords, e.g. gaming, Sri Lanka"></textarea>
+<select class="field" id="hashPlatform"><option value="general">General</option><option value="youtube">YouTube</option><option value="instagram">Instagram</option><option value="tiktok">TikTok</option></select>
+<button class="btn" onclick="generateHashtags()">Generate hashtags</button><div class="result" id="hashResult">Hashtags appear here.</div><button class="btn secondary" onclick="copyResult('hashResult')">Copy hashtags</button>
+</article>
+
+<article class="card tool-card reveal">
+<h3><i class="fa-brands fa-youtube"></i> YouTube Thumbnail Downloader</h3>
+<input class="field" id="ytUrl" placeholder="Paste YouTube video URL or ID">
+<button class="btn" onclick="youtubeThumb()">Get thumbnail</button><div class="result" id="ytResult">Thumbnail previews and available image links appear here.</div>
+</article>
+
+<article class="card tool-card reveal">
+<h3><i class="fa-solid fa-graduation-cap"></i> GPA / Grade Calculator</h3>
+<p style="margin-bottom:10px">Enter course grades and credit values, one course per line.</p>
+<textarea class="field" id="gpaEntries" rows="4" placeholder="A,3&#10;B+,3&#10;A-,2"></textarea>
+<button class="btn" onclick="calculateGPA()">Calculate GPA</button><div class="result" id="gpaResult">Use lines like A,3 (grade, credits).</div>
+</article>
+
+<article class="card tool-card reveal">
+<h3><i class="fa-solid fa-stopwatch"></i> Stopwatch & Pomodoro Timer</h3>
+<div style="font:700 28px 'Space Grotesk';text-align:center;margin:12px" id="timerDisplay">00:00.0</div>
+<div style="display:flex;gap:8px"><button class="btn" onclick="startStopwatch()">Start</button><button class="btn secondary" onclick="pauseStopwatch()">Pause</button><button class="btn secondary" onclick="resetStopwatch()">Reset</button></div>
+<hr style="border-color:var(--line);margin:15px 0">
+<label style="font-size:12px;color:var(--muted)">Pomodoro minutes</label><input class="field" id="pomoMinutes" type="number" min="1" max="180" value="25">
+<div style="display:flex;gap:8px"><button class="btn" onclick="startPomodoro()">Start focus</button><button class="btn secondary" onclick="stopPomodoro()">Stop</button></div><div class="result" id="pomoResult">Ready for a focus session.</div>
+</article>
+
+<section class="tool-card reveal" style="grid-column:1/-1;margin-top:14px;padding:30px;border:1px solid #65e7ff42;border-radius:22px;background:linear-gradient(120deg,#101827,#17142a)">
+<div class="kicker">Special collection</div><h2 style="font-size:clamp(25px,4vw,36px);margin:8px 0 10px">🎮 Gamers & Social Media Special Tools</h2>
+<p style="color:var(--muted);font-size:14px;margin-bottom:22px">Extra creative tools for Free Fire players, creators and social profiles.</p>
+<div class="tools-grid">
+<article class="card tool-card"><h3><i class="fa-solid fa-gamepad"></i> Free Fire / Gaming Name Style Generator</h3>
+<input class="field" id="gameName" maxlength="24" placeholder="Enter your gaming name"><select class="field" id="gameStyle"><option value="symbols">Symbols</option><option value="brackets">Pro brackets</option><option value="stars">Stars</option><option value="minimal">Minimal</option></select>
+<button class="btn" onclick="generateGameNames()">Generate name styles</button><div class="result" id="gameNameResult">Name styles appear here.</div><button class="btn secondary" onclick="copyResult('gameNameResult')">Copy result</button></article>
+<article class="card tool-card"><h3><i class="fa-solid fa-user-astronaut"></i> Social Media Bio & Caption Generator</h3>
+<input class="field" id="bioKeyword" placeholder="Topic / personality / niche"><select class="field" id="bioType"><option value="bio">Profile bio ideas</option><option value="caption">Post captions</option><option value="gaming">Gaming bio ideas</option></select>
+<button class="btn" onclick="generateBio()">Generate ideas</button><div class="result" id="bioResult">Ideas appear here.</div><button class="btn secondary" onclick="copyResult('bioResult')">Copy ideas</button></article>
+<article class="card tool-card"><h3><i class="fa-solid fa-link"></i> Short Link / URL Shortener</h3>
+<input class="field" id="shortUrl" type="url" placeholder="https://example.com">
+<button class="btn" onclick="shortenURL()">Create short link</button><div class="result" id="shortResult">Uses an external shortening service; service availability may vary.</div></article>
+<article class="card tool-card"><h3><i class="fa-solid fa-gauge-high"></i> Internet Data Usage & Speed Estimation</h3>
+<input class="field" id="netSpeed" type="number" min="0" placeholder="Speed in Mbps"><input class="field" id="netHours" type="number" min="0" step=".1" value="1" placeholder="Hours used">
+<select class="field" id="netUse"><option value="1">General browsing (light)</option><option value="3">Social media</option><option value="5">HD video</option><option value="8">4K video / heavy use</option><option value="2">Online gaming (approx.)</option></select>
+<button class="btn" onclick="estimateData()">Estimate data</button><div class="result" id="netResult">Estimated data use appears here.</div></article>
+<article class="card tool-card"><h3><i class="fa-solid fa-expand"></i> Aspect Ratio & Screen Resolution</h3>
+<div style="display:flex;gap:8px"><input class="field" id="aspectW" type="number" min="1" placeholder="Width"><input class="field" id="aspectH" type="number" min="1" placeholder="Height"></div>
+<button class="btn" onclick="calculateAspect()">Calculate ratio</button><div class="result" id="aspectResult">Ratio and resolution details appear here.</div></article>
+<article class="card tool-card"><h3><i class="fa-solid fa-lock"></i> Text Encryption / Decryption</h3>
+<p style="font-size:11px;color:var(--muted);margin-bottom:10px">Base64 encoding for convenience only — not secure encryption.</p><textarea class="field" id="cryptText" rows="3" placeholder="Enter text or Base64"></textarea>
+<div style="display:flex;gap:8px"><button class="btn" onclick="encodeText()">Encode</button><button class="btn secondary" onclick="decodeText()">Decode</button></div><div class="result" id="cryptResult">Encoded / decoded text appears here.</div><button class="btn secondary" onclick="copyResult('cryptResult')">Copy result</button></article>
+</div></section>
+
 </div>
 </div>
 </section>
@@ -1177,6 +1280,7 @@ Request a quote
 </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
 const AURA_PHONE='94742251615';
 const $=id=>document.getElementById(id);
@@ -1250,6 +1354,134 @@ Service: ${$('contactService').value}
 Details: ${$('contactDetails').value.trim()}`
 )
 });
+
+
+function copyResult(id){copyText(id)}
+function convertCase(){
+ const v=$('caseText').value, mode=$('caseMode').value;
+ let out=v;
+ if(mode==='upper')out=v.toUpperCase();
+ if(mode==='lower')out=v.toLowerCase();
+ if(mode==='title')out=v.toLowerCase().replace(/\b[\p{L}\p{N}]/gu,c=>c.toUpperCase());
+ if(mode==='sentence')out=v.toLowerCase().replace(/(^\s*\p{L}|[.!?]\s+\p{L})/gu,c=>c.toUpperCase());
+ if(mode==='alternating')out=[...v].map((c,i)=>i%2?c.toLowerCase():c.toUpperCase()).join('');
+ if(mode==='inverse')out=[...v].map(c=>c===c.toUpperCase()?c.toLowerCase():c.toUpperCase()).join('');
+ $('caseResult').textContent=out||'Enter text first.';
+}
+function downloadBlob(blob,name){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1500)}
+async function imagesToPDF(){
+ const files=[...($('pdfImages').files||[])]; const out=$('pdfResult');
+ if(!files.length){out.textContent='Choose at least one image.';return}
+ out.textContent='Preparing PDF…';
+ try{
+  const pages=[];
+  for(const f of files){const data=await new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(f)});
+   const im=await new Promise((res,rej)=>{const i=new Image();i.onload=()=>res(i);i.onerror=rej;i.src=data});
+   const c=document.createElement('canvas');c.width=im.naturalWidth;c.height=im.naturalHeight;c.getContext('2d').drawImage(im,0,0);pages.push(c.toDataURL('image/jpeg',.92));
+  }
+  if(!window.jspdf?.jsPDF)throw Error('PDF library did not load. Check internet and reload.');
+  const {jsPDF}=window.jspdf; const doc=new jsPDF({orientation:'p',unit:'pt',format:'a4'});
+  for(let i=0;i<pages.length;i++){if(i)doc.addPage();const props=doc.getImageProperties(pages[i]);const scale=Math.min(595.28/props.width,841.89/props.height);const w=props.width*scale,h=props.height*scale;doc.addImage(pages[i],'JPEG',(595.28-w)/2,(841.89-h)/2,w,h)}
+  doc.save('aura-images.pdf');out.textContent='PDF created and download started.';
+ }catch(e){out.textContent='Could not create PDF: '+e.message}
+}
+$('resizeQuality')?.addEventListener('input',()=>{$('qualityVal').textContent=$('resizeQuality').value+'%'});
+async function resizeCompressImage(){
+ const f=$('resizeImage').files[0],out=$('resizeResult');if(!f){out.textContent='Choose an image first.';return}
+ try{const url=await new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(f)});
+ const im=await new Promise((res,rej)=>{const i=new Image();i.onload=()=>res(i);i.onerror=rej;i.src=url});
+ let w=parseInt($('resizeW').value)||im.naturalWidth,h=parseInt($('resizeH').value)||im.naturalHeight;
+ if(!$('resizeW').value&&$('resizeH').value)w=Math.round(im.naturalWidth*h/im.naturalHeight);
+ if($('resizeW').value&&!$('resizeH').value)h=Math.round(im.naturalHeight*w/im.naturalWidth);
+ w=Math.min(12000,w);h=Math.min(12000,h);const c=document.createElement('canvas');c.width=w;c.height=h;c.getContext('2d').drawImage(im,0,0,w,h);
+ const blob=await new Promise(res=>c.toBlob(res,'image/jpeg',Number($('resizeQuality').value)/100));if(!blob)throw Error('Image export failed');
+ downloadBlob(blob,'aura-resized.jpg');out.textContent=`Done: ${w} × ${h}px · ${(blob.size/1024).toFixed(1)} KB`;
+ }catch(e){out.textContent='Could not process image: '+e.message}
+}
+async function getNetworkInfo(){
+ const out=$('ipResult');out.textContent='Checking public IP…';
+ try{const r=await fetch('https://api.ipify.org?format=json');if(!r.ok)throw Error();const d=await r.json();
+ out.textContent=`Public IP: ${d.ip} · Browser: ${navigator.userAgent} · Language: ${navigator.language} · Online: ${navigator.onLine?'Yes':'No'} · Platform: ${navigator.platform}. Public IP lookup uses an external service.`}
+ catch(e){out.textContent=`Unable to fetch public IP. Online: ${navigator.onLine?'Yes':'No'} · Language: ${navigator.language} · Platform: ${navigator.platform}.`}
+}
+function convertDataUnits(){
+ const v=Number($('dataValue').value),from=$('dataFrom').value,to=$('dataTo').value;const factors={B:1,KB:1024,MB:1024**2,GB:1024**3,TB:1024**4};
+ if($('dataValue').value===''||!Number.isFinite(v)||v<0){$('dataResult').textContent='Enter a valid non-negative value.';return}
+ $('dataResult').textContent=`${v} ${from} = ${(v*factors[from]/factors[to]).toLocaleString(undefined,{maximumFractionDigits:6})} ${to} (binary units, 1 KB = 1024 B).`;
+}
+function safeText(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function makeDocument(kind){
+ let business,client,detail,total,title;
+ if(kind==='invoice'){
+  const qty=Math.max(1,Number($('invQty').value)||1),price=Math.max(0,Number($('invPrice').value)||0);
+  business=$('invBusiness').value.trim()||'Your Business';client=$('invClient').value.trim()||'Client';detail=$('invItem').value.trim()||'Service';total=qty*price;title='INVOICE';
+  if(!$('invPrice').value){$('invoiceResult').textContent='Enter a unit price first.';return}
+  $('invoiceResult').innerHTML=`<div style="background:white;color:#111;padding:18px;border-radius:8px"><h2>${title}</h2><p>${safeText(business)}</p><hr><p>Invoice date: ${new Date().toLocaleDateString()}</p><p>Bill to: ${safeText(client)}</p><p>${safeText(detail)} × ${qty}</p><h3>Total: LKR ${total.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})}</h3><small>Simple invoice preview. Add your business/tax details if required.</small></div>`;
+ }else{
+  business=$('recBusiness').value.trim()||'Your Business';client=$('recCustomer').value.trim()||'Customer';detail=$('recDetails').value.trim()||'Payment';total=Math.max(0,Number($('recAmount').value)||0);title='PAYMENT RECEIPT';
+  if(!$('recAmount').value){$('receiptResult').textContent='Enter the amount first.';return}
+  $('receiptResult').innerHTML=`<div style="background:white;color:#111;padding:18px;border-radius:8px"><h2>${title}</h2><p>${safeText(business)}</p><hr><p>Receipt date: ${new Date().toLocaleDateString()}</p><p>Received from: ${safeText(client)}</p><p>For: ${safeText(detail)}</p><h3>Amount paid: LKR ${total.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})}</h3><small>Keep this receipt for your records.</small></div>`;
+ }
+}
+function printDocument(id){const el=$(id);if(!el.innerHTML.trim()){alert('Create the preview first.');return}const w=window.open('','_blank');if(!w){alert('Allow pop-ups to print or save as PDF.');return}w.document.write('<!doctype html><html><head><title>AURA document</title><style>body{font:16px Arial;padding:30px}h2{margin-top:0}</style></head><body>'+el.innerHTML+'</body></html>');w.document.close();w.focus();w.print()}
+function generateHashtags(){
+ const topic=$('hashTopic').value.trim();if(!topic){$('hashResult').textContent='Enter a topic first.';return}
+ const tags=topic.normalize('NFKD').replace(/[^\p{L}\p{N}\s]/gu,' ').split(/\s+/).filter(Boolean).map(w=>w.toLowerCase());
+ const unique=[...new Set(tags)];const extras={general:['viral','trending','explore','contentcreator'],youtube:['youtube','youtuber','subscribe','newvideo'],instagram:['instagram','reels','instagood','explorepage'],tiktok:['tiktok','fyp','foryou','viralvideo']}[$('hashPlatform').value];
+ $('hashResult').textContent=[...new Set([...unique,...extras])].map(x=>'#'+x).join(' ');
+}
+function youtubeThumb(){
+ const raw=$('ytUrl').value.trim();let id=raw;
+ try{if(raw.includes('://')){const u=new URL(raw);if(u.hostname.includes('youtu.be'))id=u.pathname.slice(1);else if(u.searchParams.get('v'))id=u.searchParams.get('v');else {const m=u.pathname.match(/\/(?:shorts|embed)\/([^/?]+)/);if(m)id=m[1]}}}catch(e){}
+ id=id.split(/[?&#/]/)[0];const out=$('ytResult');
+ if(!/^[\w-]{11}$/.test(id)){out.textContent='Enter a valid YouTube video URL or 11-character video ID.';return}
+ const urls=[['High quality',`https://img.youtube.com/vi/${id}/maxresdefault.jpg`],['Standard',`https://img.youtube.com/vi/${id}/sddefault.jpg`],['Medium',`https://img.youtube.com/vi/${id}/hqdefault.jpg`]];
+ out.innerHTML='';urls.forEach(([label,url])=>{const div=document.createElement('div');div.style.marginBottom='12px';const a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener';a.textContent='Open '+label+' thumbnail';a.style.display='block';a.style.marginBottom='6px';const img=document.createElement('img');img.src=url;img.alt=label+' YouTube thumbnail';img.loading='lazy';img.style.cssText='max-width:100%;border-radius:8px';div.append(a,img);out.append(div)});
+ const note=document.createElement('p');note.textContent='Some videos do not have every resolution. Open an image link and save it if available.';out.append(note)
+}
+function calculateGPA(){
+ const map={'A+':4,'A':4,'A-':3.7,'B+':3.3,'B':3,'B-':2.7,'C+':2.3,'C':2,'C-':1.7,'D+':1.3,'D':1,'F':0};
+ const lines=$('gpaEntries').value.split(/\n/).map(x=>x.trim()).filter(Boolean);let pts=0,credits=0;
+ for(const line of lines){const [g,c0]=line.split(/[,\t ]+/);const grade=(g||'').toUpperCase(),c=Number(c0);if(!(grade in map)||!Number.isFinite(c)||c<=0){$('gpaResult').textContent=`Invalid line: "${line}". Use grade,credits (example A,3).`;return}pts+=map[grade]*c;credits+=c}
+ $('gpaResult').textContent=credits?`Estimated GPA: ${(pts/credits).toFixed(2)} / 4.00 · Credits: ${credits}. Grade points vary by institution; adjust to your school's scale.`:'Enter at least one grade and credit line.'
+}
+let swElapsed=0,swStarted=0,swInterval=null,pomoInterval=null,pomoRemaining=0;
+function updateStopwatch(){const ms=swElapsed+(swInterval?performance.now()-swStarted:0);const tenths=Math.floor(ms/100);const m=String(Math.floor(tenths/600)).padStart(2,'0'),s=String(Math.floor(tenths/10)%60).padStart(2,'0');$('timerDisplay').textContent=`${m}:${s}.${tenths%10}`}
+function startStopwatch(){if(swInterval)return;swStarted=performance.now();swInterval=setInterval(updateStopwatch,100)}
+function pauseStopwatch(){if(!swInterval)return;swElapsed+=performance.now()-swStarted;clearInterval(swInterval);swInterval=null;updateStopwatch()}
+function resetStopwatch(){pauseStopwatch();swElapsed=0;updateStopwatch()}
+function startPomodoro(){stopPomodoro();const min=Math.max(1,Math.min(180,Number($('pomoMinutes').value)||25));pomoRemaining=Math.round(min*60);const tick=()=>{const m=String(Math.floor(pomoRemaining/60)).padStart(2,'0'),s=String(pomoRemaining%60).padStart(2,'0');$('pomoResult').textContent=`Focus time remaining: ${m}:${s}`;if(pomoRemaining<=0){clearInterval(pomoInterval);pomoInterval=null;$('pomoResult').textContent='Focus session complete! Take a short break.';return}pomoRemaining--};tick();pomoInterval=setInterval(tick,1000)}
+function stopPomodoro(){if(pomoInterval)clearInterval(pomoInterval);pomoInterval=null}
+function generateGameNames(){
+ const n=$('gameName').value.trim();if(!n){$('gameNameResult').textContent='Enter a gaming name first.';return}
+ const styles={symbols:[`亗 ${n} 亗`,`乂${n}乂`,`么 ${n} 么`,`ツ${n}ツ`],brackets:[`『${n}』`,`【${n}】`,`꧁${n}꧂`,`༺${n}༻`],stars:[`★${n}★`,`✦ ${n} ✦`,`☆彡${n}彡☆`,`✧${n}✧`],minimal:[`${n}.`,`x${n}x`,`_${n}_`,`${n}々`]};
+ $('gameNameResult').textContent=styles[$('gameStyle').value].join('\n')
+}
+function generateBio(){
+ const k=$('bioKeyword').value.trim()||'my journey',type=$('bioType').value;let a;
+ if(type==='bio')a=[`✨ ${k} | Creating my own path`,`🌍 Living • Learning • Growing`,`💫 Making moments count | ${k}`];
+ else if(type==='caption')a=[`A little moment from my ${k} journey ✨`,`New chapter, same energy. 🔥`,`Collect moments, not just likes. 💫`];
+ else a=[`🎮 ${k} | Play smart, stay humble`,`⚡ Gaming mode: ON | ${k}`,`🏆 Practice • Progress • Repeat`];
+ $('bioResult').textContent=a.join('\n\n')
+}
+async function shortenURL(){
+ const raw=$('shortUrl').value.trim(),out=$('shortResult');try{const u=new URL(raw);if(!['http:','https:'].includes(u.protocol))throw Error();out.textContent='Contacting URL shortening service…';
+ const r=await fetch('https://is.gd/create.php?format=simple&url='+encodeURIComponent(u.href));if(!r.ok)throw Error();const text=(await r.text()).trim();if(!text.startsWith('http'))throw Error(text);
+ out.innerHTML='';const a=document.createElement('a');a.href=text;a.target='_blank';a.rel='noopener';a.textContent=text;out.append('Short link: ',a)}catch(e){out.textContent='Could not create short link. Check the URL, connection, or try again later. The service may block some browsers.'}
+}
+function estimateData(){
+ const mbps=Number($('netSpeed').value),hours=Number($('netHours').value),factor=Number($('netUse').value);
+ if(!$('netSpeed').value||mbps<0||!Number.isFinite(hours)||hours<0){$('netResult').textContent='Enter a valid speed and duration.';return}
+ const maxGB=mbps*1e6/8*hours*3600/1e9,estGB=maxGB*factor/8;
+ $('netResult').textContent=`At ${mbps} Mbps for ${hours} hour(s): theoretical maximum ≈ ${maxGB.toFixed(2)} GB. Rough activity estimate: ${estGB.toFixed(2)} GB. Real use varies with quality, buffering, app activity and network conditions.`
+}
+function calculateAspect(){
+ const w=Number($('aspectW').value),h=Number($('aspectH').value);if(w<=0||h<=0||!Number.isFinite(w)||!Number.isFinite(h)){$('aspectResult').textContent='Enter positive width and height.';return}
+ const gcd=(a,b)=>b?gcd(b,a%b):a,g=gcd(Math.round(w),Math.round(h));
+ $('aspectResult').textContent=`Aspect ratio: ${(w/h).toFixed(4)}:1 · Simplified ratio: ${Math.round(w)/g}:${Math.round(h)/g} · Resolution: ${w} × ${h} (${(w*h/1e6).toFixed(2)} MP).`
+}
+function encodeText(){try{$('cryptResult').textContent=btoa(unescape(encodeURIComponent($('cryptText').value)))}catch(e){$('cryptResult').textContent='Could not encode this text.'}}
+function decodeText(){try{$('cryptResult').textContent=decodeURIComponent(escape(atob($('cryptText').value.trim())))}catch(e){$('cryptResult').textContent='Invalid Base64 input.'}}
 
 function analyzeText(){
 const t=$('textInput').value;
