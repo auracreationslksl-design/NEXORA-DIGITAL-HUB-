@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#080b14">
-<meta name="description" content="AURA NET.LK Agency — premium web development, creative editing and digital solutions.">
-<title>AURA NET.LK Agency | Premium Digital Solutions</title>
+<meta name="description" content="AURA DIGITAL HUB Agency — premium web development, creative editing and digital solutions.">
+<title>AURA DIGITAL HUB | Premium Digital Solutions</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -488,12 +488,6 @@ align-items:center
 
 .field{
 width:100%;
-min-width:0;
-min-height:46px;
--webkit-appearance:auto;
-appearance:auto;
-color-scheme:dark;
-touch-action:manipulation;
 background:#070b13;
 border:1px solid var(--line);
 color:var(--text);
@@ -703,25 +697,6 @@ opacity:1;
 transform:translateY(0)
 }
 
-
-/* Mobile-friendly date picker and touch controls */
-.age-tool-card .age-date-label{display:block;color:var(--muted);font-size:12px;margin:0 0 7px;font-weight:600}
-.age-date-wrap{position:relative;margin-bottom:10px}
-.age-date-input.field{display:block;width:100%;min-height:52px;padding:13px 14px;font-size:16px;line-height:1.4;border-radius:12px;margin:0;background:#070b13;color:#f5f7ff;cursor:pointer}
-.age-date-input::-webkit-calendar-picker-indicator{cursor:pointer;opacity:1;filter:invert(.8) sepia(.4) saturate(2) hue-rotate(155deg);width:22px;height:22px;padding:3px}
-.age-date-hint{display:block;color:#8794ab;font-size:11px;padding:7px 2px 0}
-.age-date-hint i{color:var(--cyan);margin-right:5px}
-.age-calculate-btn{min-height:48px;font-size:14px;touch-action:manipulation}
-.age-result{min-height:44px;line-height:1.6}
-@media(max-width:680px){
-  .tool-card .field{font-size:16px;min-height:48px}
-  .age-tool-card{padding:22px 18px}
-  .age-date-input.field{font-size:16px;min-height:54px;padding:14px 12px}
-  .age-date-hint{font-size:12px}
-  .age-calculate-btn{min-height:50px}
-  .tool-card .btn{min-height:46px}
-}
-
 @media(max-width:900px){
 .hero-grid{grid-template-columns:1fr;gap:25px}
 .hero{padding-top:130px}
@@ -784,9 +759,9 @@ html{scroll-behavior:auto}
 
 <header>
 <div class="wrap nav">
-<a class="brand" href="#home" aria-label="AURA NET.LK home">
+<a class="brand" href="#home" aria-label="AURA DIGITAL HUB home">
 <span class="brand-mark"><i class="fa-solid fa-a"></i></span>
-<span class="brand-name">AURA <span>NET.LK</span></span>
+<span class="brand-name">AURA <span>DIGITAL HUB</span></span>
 </a>
 
 <nav class="navlinks" id="navlinks" aria-label="Main navigation">
@@ -823,7 +798,7 @@ Premium Tech & Creative Solutions
 <h1>Ideas into <span class="gradient">digital experiences.</span></h1>
 
 <p class="hero-copy">
-AURA NET.LK Agency helps brands and individuals build a stronger online presence with modern websites, creative editing and practical digital solutions — thoughtfully designed, responsive and client-focused.
+AURA DIGITAL HUB Agency helps brands and individuals build a stronger online presence with modern websites, creative editing and practical digital solutions — thoughtfully designed, responsive and client-focused.
 </p>
 
 <div class="hero-actions">
@@ -942,7 +917,7 @@ Responsive on mobile & desktop
 
 <article class="card tool-card reveal">
 <h3><i class="fa-brands fa-whatsapp"></i> WhatsApp link maker</h3>
-<input class="field" id="waNumber" placeholder="Phone number (e.g. 0742251615)">
+<input class="field" id="waNumber" placeholder="Phone number (e.g. 0741123452)">
 <input class="field" id="waMessage" placeholder="Optional message">
 <button class="btn" onclick="generateWALink()">Create WhatsApp link</button>
 <div class="result" id="waOutput">Your link will appear here.</div>
@@ -984,15 +959,11 @@ Responsive on mobile & desktop
 <div class="result" id="colorInfoOutput">Choose a colour.</div>
 </article>
 
-<article class="card tool-card reveal age-tool-card">
+<article class="card tool-card reveal">
 <h3><i class="fa-solid fa-calendar-days"></i> Age calculator</h3>
-<label for="birthDateInput" class="age-date-label">Date of birth</label>
-<div class="age-date-wrap">
-  <input class="field age-date-input" type="date" id="birthDateInput" aria-label="Choose your date of birth" autocomplete="bday" required>
-  <span class="age-date-hint"><i class="fa-regular fa-calendar"></i> Tap here to select your birthday</span>
-</div>
-<button class="btn age-calculate-btn" type="button" onclick="calculateAge()"><i class="fa-solid fa-calculator"></i> Calculate age</button>
-<div class="result age-result" id="ageOutput" aria-live="polite">Your age will appear here.</div>
+<input class="field" type="date" id="birthDateInput">
+<button class="btn" onclick="calculateAge()">Calculate age</button>
+<div class="result" id="ageOutput">Your age appears here.</div>
 </article>
 
 <article class="card tool-card reveal">
@@ -1197,7 +1168,7 @@ Responsive on mobile & desktop
 <div class="contact-grid">
 
 <div class="card reveal">
-<h3>Contact AURA NET.LK</h3>
+<h3>Contact AURA DIGITAL HUB </h3>
 <p style="margin:10px 0 15px">For service questions, quotations and project discussions, use the contact option below.</p>
 
 <div class="contact-line">
@@ -1259,13 +1230,13 @@ Continue via WhatsApp <i class="fa-solid fa-arrow-right"></i>
 <div class="footer-row">
 
 <div>
-<div class="footer-brand">AURA NET.LK Agency</div>
+<div class="footer-brand">AURA DIGITAL HUB </div>
 <div>Digital creativity. Practical technology.</div>
 </div>
 
-<div>© <span id="year"></span> AURA NET.LK. All rights reserved.</div>
+<div>© <span id="year"></span> AURA DIGITAL HUB All rights reserved.</div>
 
-<div class="footer-credit">Designed &amp; Developed by AURA NET.LK Agency</div>
+<div class="footer-credit">Designed &amp; Developed by AURA X ADMIN </div>
 
 </div>
 
@@ -1363,7 +1334,7 @@ $('orderForm').addEventListener('submit',e=>{
 e.preventDefault();
 
 openWhatsApp(
-`Hello AURA NET.LK Agency!
+`Hello AURA DIGITAL HUB Agency!
 Name: ${$('orderName').value.trim()}
 Service: ${$('orderService').value}
 Project details: ${$('orderDetails').value.trim()}`
@@ -1376,7 +1347,7 @@ $('contactForm').addEventListener('submit',e=>{
 e.preventDefault();
 
 openWhatsApp(
-`Hello AURA NET.LK Agency!
+`Hello AURA DIGITAL HUB Agency!
 Name: ${$('contactName').value.trim()}
 Email: ${$('contactEmail').value.trim()||'Not provided'}
 Service: ${$('contactService').value}
@@ -1629,8 +1600,7 @@ $('colorInfoOutput').textContent=
 }
 
 function calculateAge(){
-const input=$('birthDateInput');
-const val=input.value;
+const val=$('birthDateInput').value;
 
 if(!val){
 $('ageOutput').textContent='Choose your birth date first.';
@@ -1924,7 +1894,6 @@ updateClock();
 
 setInterval(updateClock,1000);
 </script>
-
 
 </body>
 </html>
